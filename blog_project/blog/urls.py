@@ -1,4 +1,5 @@
 from django.urls import path 
+from blog_project import settings
 from .views import BlogListView, BlogDetailView, BLogCreateView, BlogUpdateView, BlogDeleteView
 
 
