@@ -9,4 +9,16 @@
             <p>{{ post.body }}</p>
         </div>
     {% endfor %}
+    <form action="{% url 'home' %}" method="get" id="sortProduct">
+        <div class="box sort pull-right">
+            <span>Пол:</span>
+            <button value="Сортировка" class="dropdown-toggle" type="submit" data-toggle="dropdown" id="menu2">
+                <span class="dropdown-label">По умолчанию</span>
+            </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
+            <li><input type="submit" name="filter" value="Female"></li>
+            <li><input type="submit" name="filter" value="Male"></li>
+         </ul>
+        </div>
+      </form>
 {% endblock content %}
