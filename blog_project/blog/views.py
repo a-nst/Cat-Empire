@@ -1,6 +1,6 @@
 from typing import List
 from django.http import request
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -12,18 +12,18 @@ from .models import Post
 class BlogListView(ListView):
     model = Post
     template_name = 'home.html'
-    #queryset = Post.objects.all()
-    #query_male = Post.objects.all().filter(sex_k = 'Мужской')
-    #query_female = Post.objects.all().filter(sex_k = 'Женский')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.request.GET.get('filter') == 'Female':
+        if self.request.GET.get('filter') == 'Женский':
             context['object_list'] = Post.objects.filter(sex_k="Женский")
-        elif self.request.GET.get('filter') == 'Male':
+        elif self.request.GET.get('filter') == 'Мужской':
             context['object_list'] = Post.objects.filter(sex_k="Мужской")
         return context
 
+
+class AboutView(TemplateView):
+    template_name = 'about.html'
 
 
 class BlogDetailView(DetailView):

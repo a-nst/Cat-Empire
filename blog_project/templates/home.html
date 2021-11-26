@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for post in object_list %}
-        <div class="post-entery">
-            <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
-            <img src="{{ post.img.url }}" style ="width:500px; height:600px;" >
-            <p>{{ post.sex_k }}</p>
-            <p>{{ post.body }}</p>
-        </div>
-    {% endfor %}
-    <form action="{% url 'home' %}" method="get" id="sortProduct">
-        <div class="box sort pull-right">
-            <span>Пол:</span>
-            <button value="Сортировка" class="dropdown-toggle" type="submit" data-toggle="dropdown" id="menu2">
-                <span class="dropdown-label">По умолчанию</span>
-            </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
-            <li><input type="submit" name="filter" value="Female"></li>
-            <li><input type="submit" name="filter" value="Male"></li>
-         </ul>
-        </div>
-      </form>
+<p></p>    
+<form action="{% url 'home' %}" method="get" id="sortProduct">
+        <h5>
+            <span>Отфильтровать по полу:</span>
+            <span><input value="По умолчанию" name="filter" type="submit"></span>
+            <span><input type="submit" name="filter" value="Женский"></span>
+            <span><input type="submit" name="filter" value="Мужской"></span>
+        </h5>
+    </form>
+    <div class="card-columns">    
+        {% for post in object_list %}
+            <div class="card text-center">
+                <div class="post-entery">
+                    <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+                    <img src="{{ post.img.url }}" style ="width:492px; height:600px;" >
+                    <p>Пол: {{ post.sex_k }}</p>
+                    <p>Описание:</p>
+                    <p>{{ post.body }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

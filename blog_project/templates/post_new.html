@@ -2,9 +2,13 @@
 
 
 {% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
     <h1>Добавить объявление</h1>
     <form action ="" enctype="multipart/form-data" method ="post">{% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
         <input type="submit" value ="Создать">
     </form>
+</div>
 {% endblock content  %}

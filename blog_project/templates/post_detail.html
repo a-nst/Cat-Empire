@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container">    
     <div class ="post-entery">
+        <p></p>
         <h2>{{ object.title }}</h2>
-        <img src="{{ post.img.url }}" style ="width:500px; height:600px;" >
-        <p>{{ object.sex_k }}</p>
+        <img src="{{ post.img.url }}" style ="width:800px; height:950px;" >
+        <p>Пол: {{ object.sex_k }}</p>
+        <p>Описание:</p>
         <p>{{ object.body }}</p>
-        
     </div>
-
-    <p><a href ="{% url 'post_edit' post.pk %}">Изменить объявление</a></p>
-    <p><a href ="{% url 'post_delete' post.pk %}">Удалить объявление</a></p>
+    <span>
+        <button type="button" class="btn btn-warning" href ="{% url 'post_edit' post.pk %}">Изменить объявление</button>
+        <button type="button" class="btn btn-warning" href ="{% url 'post_delete' post.pk %}">Удалить объявление</button>
+    </span>
+    <p></p>
+</div>
 {% endblock content %}
 
 
