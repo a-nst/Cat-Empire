@@ -5,6 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type ="image/x-icon" href="{% static 'images/icon.ico' %}">
     <title>Кошачья Империя</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -14,14 +15,15 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-warning">    
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}"><h1>Кошачья Империя</h1></a>
+          <img src="{% static 'images/icon.png' %}" alt="" width="32" height="32" class="d-inline-block align-text-top">
+          <a class="navbar-brand" href="{% url 'home' %}"><h1>.  Кошачья Империя</h1></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" href="{% url 'about' %}"><h3>О нас</h3></a>
-              <a class="nav-link active ms-auto" href="{% url 'post_new' %}"><h3>Добавить объявление</h3></a>
+              <a class="nav-link active" href="{% url 'post_new' %}"><h3>Добавить объявление</h3></a>
             </div>
           </div>
         </div>
